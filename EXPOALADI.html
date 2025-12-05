@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>MARCO NORMATIVO DE LA EXPO ALADI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --bg: #f5f7fa;
+      --bg-alt: #ffffff;
+      --primary: #004b8d;
+      --primary-soft: #e0ecf7;
+      --accent: #e0952a;
+      --text-main: #1f2933;
+      --text-muted: #6b7480;
+      --border: #d0d7e2;
+      --danger: #b3261e;
+      --radius-lg: 10px;
+      --radius-xl: 14px;
+      --shadow-soft: 0 14px 30px rgba(15, 23, 42, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #f0f5ff 0, #f5f7fa 40%, #f5f7fa 100%);
+      color: var(--text-main);
+      line-height: 1.5;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1200px;
+      margin: 24px auto 40px;
+      padding: 0 16px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #004b8d, #0073b1);
+      color: white;
+      padding: 24px 24px 20px;
+      border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    header h1 {
+      margin: 0 0 6px;
+      font-size: 24px;
+      letter-spacing: 0.04em;
+    }
+
+    header p {
+      margin: 0;
+      font-size: 14px;
+      color: #dbeafe;
+    }
+
+    .header-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      margin-top: 10px;
+      font-size: 12px;
+      color: #e5e7eb;
+      opacity: 0.9;
+    }
+
+    .pill {
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      background: rgba(15, 23, 42, 0.16);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 20px;
+      margin-top: 18px;
+    }
+
+    @media (max-width: 900px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      header {
+        border-radius: 0;
+        position: static;
+      }
+    }
+
+    aside {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+      padding: 16px 16px 18px;
+      border: 1px solid var(--border);
+    }
+
+    aside h2 {
+      font-size: 16px;
+      margin: 0 0 8px;
+    }
+
+    aside p {
+      font-size: 13px;
+      margin: 0 0 12px;
+      color: var(--text-muted);
+    }
+
+    .nav-section-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 12px 0 6px;
+      color: var(--text-muted);
+    }
+
+    .filter-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .filter-chip {
+      font-size: 12px;
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      color: var(--text-muted);
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .filter-chip:hover {
+      background: #eef2ff;
+      border-color: #c7d2fe;
+      color: var(--text-main);
+    }
+
+    .filter-chip.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.7);
+    }
+
+    .tag {
+      font-size: 11px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: #f9fafb;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tag.type-sede {
+      border-color: #bfdbfe;
+      background: #eff6ff;
+      color: #1d4ed8;
+    }
+
+    .tag.type-presupuesto {
+      border-color: #fed7aa;
+      background: #fffbeb;
+      color: #c05621;
+    }
+
+    .tag.type-tdr {
+      border-color: #a7f3d0;
+      background: #ecfdf5;
+      color: #047857;
+    }
+
+    .tag.type-marco {
+      border-color: #e5e7eb;
+      background: #f3f4f6;
+      color: #374151;
+    }
+
+    .tag.type-cancelada {
+      border-color: #fecaca;
+      background: #fef2f2;
+      color: #b91c1c;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 14px 16px 16px;
+      border: 1px solid var(--border);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.10);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .card-title {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .card-subtitle {
+      font-size: 13px;
+      margin: 0;
+      color: var(--text-muted);
+    }
+
+    .card-body {
+      font-size: 13px;
+      color: var(--text-main);
+    }
+
+    .card-body p {
+      margin: 4px 0;
+    }
+
+    .card-footer {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      background: var(--primary-soft);
+      color: var(--primary);
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .link-btn:hover {
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+    }
+
+    .tabs {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 6px;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .tab {
+      font-size: 13px;
+      padding: 7px 14px;
+      border-radius: 10px 10px 0 0;
+      border: 1px solid transparent;
+      border-bottom: none;
+      background: transparent;
+      cursor: pointer;
+      color: var(--text-muted);
+      transition: all 0.16s ease;
+    }
+
+    .tab:hover {
+      background: #e5e7eb;
+      color: var(--text-main);
+    }
+
+    .tab.active {
+      background: var(--bg-alt);
+      border-color: var(--border);
+      border-bottom: 1px solid var(--bg-alt);
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .section {
+      display: none;
+    }
+
+    .section.active {
+      display: block;
+    }
+
+    .edition-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .edition-title {
+      font-size: 14px;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .edition-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .doc-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 10px;
+    }
+
+    .doc-item {
+      border-radius: 9px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      padding: 8px 10px;
+      font-size: 12px;
+    }
+
+    .doc-item-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .doc-item-meta {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .doc-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin-bottom: 4px;
+    }
+
+    .doc-link {
+      font-size: 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .highlight-card {
+      border-left: 4px solid var(--accent);
+      background: #fffbeb;
+    }
+
+    .small {
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>MARCO NORMATIVO DE LA EXPO ALADI</h1>
+    <p>Compilación de resoluciones, acuerdos y directrices que regulan la EXPO ALADI – Macrorrueda de Negocios.</p>
+    <div class="header-meta">
+      <div class="pill">Ámbito: Comité de Representantes, Consejo de Ministros</div>
+      <div class="pill">Cobertura: Uruguay 2014 – Bolivia 2025</div>
+      <div class="pill">Incluye edición Bolivia 2025 (posteriormente cancelada)</div>
+    </div>
+  </header>
+
+  <div class="page">
+    <div class="layout">
+      <aside>
+        <h2>Navegación</h2>
+        <p>Explorá el marco normativo de la EXPO ALADI por edición, por tipo de instrumento y por disposiciones generales.</p>
+
+        <div class="nav-section-title">Vistas</div>
+        <div class="filter-group">
+          <button class="filter-chip active" data-tab-target="ediciones">Por edición (país / año)</button>
+          <button class="filter-chip" data-tab-target="tipos">Por tipo de instrumento</button>
+          <button class="filter-chip" data-tab-target="marco">Marco general (CM + Res. 435)</button>
+        </div>
+
+        <div class="nav-section-title">Tipos de instrumento</div>
+        <div class="filter-group">
+          <span class="tag type-sede">Sede / fecha</span>
+          <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+          <span class="tag type-tdr">Términos de Referencia</span>
+          <span class="tag type-marco">Mandato / Directrices / GT</span>
+        </div>
+
+        <div class="nav-section-title">Nota</div>
+        <p class="small">
+          La edición <strong>Bolivia 2025</strong> fue posteriormente cancelada, pero se mantienen listados todos los instrumentos normativos que la designan y regulan (fecha, sede, Fondo de Capital de Trabajo y Términos de Referencia).
+        </p>
+      </aside>
+
+      <main>
+        <div class="tabs">
+          <button class="tab active" data-section="ediciones">Por edición</button>
+          <button class="tab" data-section="tipos">Por tipo</button>
+          <button class="tab" data-section="marco">Marco general</button>
+        </div>
+
+        <!-- Sección: POR EDICIÓN -->
+        <section id="section-ediciones" class="section active">
+          <!-- Uruguay 2014 -->
+          <div class="card">
+            <div class="edition-header">
+              <div>
+                <p class="edition-title">EXPO ALADI – Uruguay 2014</p>
+                <p class="edition-meta">Montevideo, Uruguay · Primera edición de la EXPO ALADI</p>
+              </div>
+              <div class="doc-tags">
+                <span class="tag type-sede">Sede / creación</span>
+                <span class="tag type-presupuesto">Presupuesto</span>
+                <span class="tag type-tdr">Términos de Referencia</span>
+              </div>
+            </div>
+            <div class="doc-list">
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 401 - Uruguay 2014 y Grupo Ad-Hoc</div>
+                <div class="doc-item-meta">Aprueba la realización de la EXPO ALADI en Uruguay (2º semestre 2014) y crea un Grupo de Trabajo Ad Hoc.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede</span>
+                  <span class="tag type-marco">Grupo de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1LbCOiHkSesldwjEeXEBx7v5CHQBAB5Fy/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 402 - Uruguay 2014 - Ter Ref y Presupuesto</div>
+                <div class="doc-item-meta">Aprueba los Términos de Referencia de la EXPO ALADI – Uruguay 2014 y destina recursos del Fondo de Capital de Trabajo.</div>
+                <div class="doc-tags">
+                  <span class="tag type-tdr">Términos de Referencia</span>
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/195d3iiY1J1BtwBpNy3zLlX70OabbPNkS/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Argentina 2015 -->
+          <div class="card">
+            <div class="edition-header">
+              <div>
+                <p class="edition-title">EXPO ALADI – Argentina 2015</p>
+                <p class="edition-meta">Provincia de Buenos Aires, Argentina · Macrorrueda Agroalimentaria</p>
+              </div>
+              <div class="doc-tags">
+                <span class="tag type-sede">Sede (definida por Res. 416)</span>
+                <span class="tag type-tdr">Términos de Referencia</span>
+                <span class="tag type-presupuesto">Presupuesto</span>
+              </div>
+            </div>
+            <div class="doc-list">
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 416 - Sede Arg 2015 y Mx 2016 - Creación GT</div>
+                <div class="doc-item-meta">Aprueba la realización de macrorruedas en Provincia de Buenos Aires (2015) y Coahuila, México (2016), y crea el GT EXPO ALADI – Macrorruedas de Negocios.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede 2015 / 2016</span>
+                  <span class="tag type-marco">Grupo de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1tqRkKxlHJPVb66i8B2YtYjx4pbBB9RnT/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 419 - Argentina 2015 - Ter Ref</div>
+                <div class="doc-item-meta">Aprueba los Términos de Referencia de la EXPO ALADI – Argentina 2015: Macrorrueda de Negocios Agroalimentaria.</div>
+                <div class="doc-tags">
+                  <span class="tag type-tdr">Términos de Referencia</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1--04BXDektKsFJP_fjFniXTnd2cVXkkn/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 418 - Argentina 2015 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 del Fondo de Capital de Trabajo para financiar la EXPO ALADI – Argentina 2015.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1XrDrrsu_ohd74gid9UyF4DzabJC1fkok/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- México 2016 -->
+          <div class="card">
+            <div class="edition-header">
+              <div>
+                <p class="edition-title">EXPO ALADI – México 2016</p>
+                <p class="edition-meta">Torreón, Estado de Coahuila, México · Macrorrueda Multisectorial</p>
+              </div>
+              <div class="doc-tags">
+                <span class="tag type-sede">Sede / fecha</span>
+                <span class="tag type-tdr">Términos de Referencia</span>
+                <span class="tag type-presupuesto">Presupuesto</span>
+              </div>
+            </div>
+            <div class="doc-list">
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 378 - México 2016 - Fijación de fecha</div>
+                <div class="doc-item-meta">Fija que la EXPO ALADI – México 2016 se realice del 19 al 21 de octubre de 2016 en Torreón, Coahuila.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Fecha / sede</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/16FF4PoPkNzS96HzngALAg8GB1DJd98yT/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 426 - México 2016 - Ter Ref</div>
+                <div class="doc-item-meta">Aprueba los Términos de Referencia de la EXPO ALADI – México 2016: Macrorrueda de Negocios Multisectorial.</div>
+                <div class="doc-tags">
+                  <span class="tag type-tdr">Términos de Referencia</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/135DEib2aUteu3v7PcUgbHvMk9RO6ggc9/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 422 - México 2016 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 del Fondo de Capital de Trabajo para la EXPO ALADI – México 2016.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/18nW6Cu-8C34yEPMj6scgR7adMQV80tDn/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bolivia 2017 -->
+          <div class="card">
+            <div class="edition-header">
+              <div>
+                <p class="edition-title">EXPO ALADI – Bolivia 2017</p>
+                <p class="edition-meta">Santa Cruz de la Sierra, Estado Plurinacional de Bolivia</p>
+              </div>
+              <div class="doc-tags">
+                <span class="tag type-sede">Sede (definida por Res. 432)</span>
+                <span class="tag type-tdr">Términos de Referencia</span>
+                <span class="tag type-presupuesto">Presupuesto</span>
+              </div>
+            </div>
+            <div class="doc-list">
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 432 - Sede Bolivia 2017 y Perú 2018</div>
+                <div class="doc-item-meta">Aprueba la realización de macrorruedas en Bolivia (2017) y Perú (2018) como futuras ediciones de la EXPO ALADI.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede 2017 / 2018</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1D8jnV641Rm9YxrLiyPS2BcAMmNPQOPWL/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 437 - Bolivia 2017 - Ter Ref</div>
+                <div class="doc-item-meta">Aprueba los Términos de Referencia de la EXPO ALADI – Bolivia 2017: Macrorrueda de Negocios Multisectorial.</div>
+                <div class="doc-tags">
+                  <span class="tag type-tdr">Términos de Referencia</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1jGrZS2MOTVNzYarNDXriEoly-c-ZI64j/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 436 - Bolivia 2017 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 del Fondo de Capital de Trabajo para la EXPO ALADI – Bolivia 2017.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1N3XUbBf9R2XQjsw6M1fSEX2gBgM4Cv1w/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Perú 2018 -->
+          <div class="card">
+            <div class="edition-header">
+              <div>
+                <p class="edition-title">EXPO ALADI – Perú 2018</p>
+                <p class="edition-meta">Lima, República del Perú</p>
+              </div>
+              <div class="doc-tags">
+                <span class="tag type-sede">Fecha / sede</span>
+                <span class="tag type-presupuesto">Presupuesto</span>
+              </div>
+            </div>
+            <div class="doc-list">
+              <div class="doc-item">
+                <div class="doc-item-title">CR Acuerdo 401 - Perú 2018 - Fecha</div>
+                <div class="doc-item-meta">Fija que la EXPO ALADI – Perú 2018 se realice del 17 al 19 de octubre de 2018 en la ciudad de Lima.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Fecha / sede</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1UGw0C_PEMEng8wXKXuHwE66ufAHaQj7k/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver acuerdo en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 444 - Perú 2018 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 del Fondo de Capital de Trabajo para la EXPO ALADI – Perú 2018.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1iuIfmapRiqjs-Ow74uHYl7fDZDbhhQOs/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Colombia 2019 -->
+          <div class="card">
+            <div class="edition-header">
+              <div>
+                <p class="edition-title">EXPO ALADI – Colombia 2019</p>
+                <p class="edition-meta">Bucaramanga, República de Colombia</p>
+              </div>
+              <div class="doc-tags">
+                <span class="tag type-sede">Sede</span>
+                <span class="tag type-tdr">Términos de Referencia</span>
+                <span class="tag type-presupuesto">Presupuesto</span>
+              </div>
+            </div>
+            <div class="doc-list">
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 446 - Colombia 2019 - Sede</div>
+                <div class="doc-item-meta">Aprueba la realización de una macrorrueda de negocios en 2019 en Bucaramanga, Colombia, como EXPO ALADI 2019.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1TsHPt9j_HRZaV9EzoiTi7fEmJj9_NwXV/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 454 - Colombia 2019 - Ter Ref</div>
+                <div class="doc-item-meta">Aprueba los Términos de Referencia de la EXPO ALADI – Colombia 2019: Macrorrueda de Negocios Multisectorial.</div>
+                <div class="doc-tags">
+                  <span class="tag type-tdr">Términos de Referencia</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1EOd-uLLUQs08fmbiQL72byc6-Ao3YBAi/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 451 - Colombia 2019 - Fondos Expo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 del Fondo de Capital de Trabajo para la EXPO ALADI – Colombia 2019.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1ddiF5mK7D6vYpv7rvyY3w6401SbJHTsV/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ecuador 2020 -->
+          <div class="card">
+            <div class="edition-header">
+              <div>
+                <p class="edition-title">EXPO ALADI – Ecuador 2020 (Edición virtual)</p>
+                <p class="edition-meta">Edición virtual · www.expoaladi.org</p>
+              </div>
+              <div class="doc-tags">
+                <span class="tag type-sede">Fecha</span>
+                <span class="tag type-tdr">Términos de Referencia (virtual)</span>
+              </div>
+            </div>
+            <div class="doc-list">
+              <div class="doc-item">
+                <div class="doc-item-title">CR Acuerdo 413 - Ecuador 2020 - Fecha</div>
+                <div class="doc-item-meta">Establece que la EXPO ALADI – Ecuador 2020 se realizará del 26 al 30 de octubre de 2020 en modalidad virtual.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Fecha</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1KQ3pHoyE_TcWV8frPMwdUJwJwEhBPG6F/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver acuerdo en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 453 - Ecuador 2020 - Sede</div>
+                <div class="doc-item-meta">Aprueba la realización de una macrorrueda de negocios en 2020 en Guayaquil, Ecuador, como EXPO ALADI 2020 (luego adaptada a formato virtual).</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1_re25DIijWXiLJSp3YPQRel2D_mdxudm/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Resolución 459 - Ecuador 2020 - Ter Ref Virtual</div>
+                <div class="doc-item-meta">Aprueba los Términos de Referencia de la EXPO ALADI – Ecuador 2020: Macrorrueda de Negocios Multisectorial – Edición Virtual.</div>
+                <div class="doc-tags">
+                  <span class="tag type-tdr">Términos de Referencia (virtual)</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1njctjaSSShrZVDKMv0ORQBSLyqmUP7eh/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cuba 2023 -->
+          <div class="card">
+            <div class="edition-header">
+              <div>
+                <p class="edition-title">EXPO ALADI – Cuba 2023</p>
+                <p class="edition-meta">La Habana, República de Cuba</p>
+              </div>
+              <div class="doc-tags">
+                <span class="tag type-sede">Fecha / sede</span>
+                <span class="tag type-tdr">Términos de Referencia</span>
+                <span class="tag type-presupuesto">Presupuesto</span>
+              </div>
+            </div>
+            <div class="doc-list">
+              <div class="doc-item">
+                <div class="doc-item-title">CR Resolución 469 - Cuba 2023 - Sede</div>
+                <div class="doc-item-meta">Aprueba la realización de una macrorrueda de negocios en 2023 en La Habana, Cuba, como EXPO ALADI 2023.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1-vZc-2KK0e0hnqnmy0Yy1cUCviGrtZql/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Acuerdo 440 - Cuba 2023 - Fecha</div>
+                <div class="doc-item-meta">Fija que la EXPO ALADI – Cuba 2023 se celebrará del 2 al 4 de octubre de 2023 en La Habana.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Fecha</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/11tDI55884eutOHpraCmO67frmWyn4te2/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver acuerdo en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Resolución 474 - Cuba 2023 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 del Fondo de Capital de Trabajo para la EXPO ALADI – Cuba 2023.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1r3Eu700aThtmSU2epYNlNqvsMo8ytRtM/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Resolución 475 - Cuba 2023 - Ter Ref</div>
+                <div class="doc-item-meta">Aprueba los Términos de Referencia de la EXPO ALADI – Cuba 2023: Macrorrueda de Negocios Multisectorial.</div>
+                <div class="doc-tags">
+                  <span class="tag type-tdr">Términos de Referencia</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/10tvsOqXoDuYYUp-3L-yzyI3UTIGyE8Rd/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bolivia 2025 (cancelada, pero incluida) -->
+          <div class="card">
+            <div class="edition-header">
+              <div>
+                <p class="edition-title">EXPO ALADI – Bolivia 2025 <span class="tag type-cancelada">Edición cancelada</span></p>
+                <p class="edition-meta">Santa Cruz de la Sierra, Estado Plurinacional de Bolivia (normativa aprobada antes de la cancelación)</p>
+              </div>
+              <div class="doc-tags">
+                <span class="tag type-sede">Fecha / sede</span>
+                <span class="tag type-tdr">Términos de Referencia</span>
+                <span class="tag type-presupuesto">Presupuesto</span>
+              </div>
+            </div>
+            <div class="doc-list">
+              <div class="doc-item">
+                <div class="doc-item-title">CR Resolución 491 - Bolivia 2025 - Fecha y lugar</div>
+                <div class="doc-item-meta">Aprueba la realización de la EXPO ALADI 2025 en Santa Cruz de la Sierra, Bolivia, del 8 al 10 de julio de 2025.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Fecha / sede (original)</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1DFQJpnJRR6mthgxh4lghAAxE43bRQVIv/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 497 - Bolivia 2025 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 180.700 del Fondo de Capital de Trabajo para la EXPO ALADI – Bolivia 2025.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1Dy-3_ajhizyDWucEpmJZtkNVwKQy_cOq/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 499 - Bolivia 2025 - Modificación Fecha</div>
+                <div class="doc-item-meta">Modifica la fecha de la EXPO ALADI – Bolivia 2025, fijándola del 29 al 31 de julio de 2025 en Santa Cruz de la Sierra.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Modificación de fecha</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1g46VhEefKtzFGAupd6XHvYTKO_Bohth0/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 500 - Bolivia 2025 - Ter Ref nuevas fechas</div>
+                <div class="doc-item-meta">Aprueba los Términos de Referencia de la EXPO ALADI – Bolivia 2025, ajustados a las nuevas fechas del 29 al 31 de julio de 2025.</div>
+                <div class="doc-tags">
+                  <span class="tag type-tdr">Términos de Referencia</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1ry0mBr1SZgRr4KFrRZGt871mYclhNG20/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución en Drive
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección: POR TIPO -->
+        <section id="section-tipos" class="section">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Instrumentos que definen sede y/o fecha</h3>
+                <p class="card-subtitle">Resoluciones y acuerdos que designan país anfitrión, ciudad y/o fechas de la EXPO ALADI.</p>
+              </div>
+            </div>
+            <div class="doc-list">
+              <!-- Sede / fecha -->
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 401 - Uruguay 2014 y Grupo Ad-Hoc</div>
+                <div class="doc-item-meta">Aprueba la realización de la EXPO ALADI en Uruguay (2º semestre 2014).</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede Uruguay 2014</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1LbCOiHkSesldwjEeXEBx7v5CHQBAB5Fy/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 416 - Sede Arg 2015 y Mx 2016 - Creación GT</div>
+                <div class="doc-item-meta">Aprueba la realización de macrorruedas en Provincia de Buenos Aires (2015) y Coahuila (2016).</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede Arg 2015 / Mx 2016</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1tqRkKxlHJPVb66i8B2YtYjx4pbBB9RnT/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 378 - México 2016 - Fijación de fecha</div>
+                <div class="doc-item-meta">Fija que la EXPO ALADI – México 2016 se realice del 19 al 21 de octubre en Torreón.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Fecha México 2016</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/16FF4PoPkNzS96HzngALAg8GB1DJd98yT/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 432 - Sede Bolivia 2017 y Perú 2018</div>
+                <div class="doc-item-meta">Aprueba la realización de macrorruedas en Bolivia 2017 y Perú 2018.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede Bolivia 2017 / Perú 2018</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1D8jnV641Rm9YxrLiyPS2BcAMmNPQOPWL/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Acuerdo 401 - Perú 2018 - Fecha</div>
+                <div class="doc-item-meta">Fija que la EXPO ALADI – Perú 2018 se realice del 17 al 19 de octubre en Lima.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Fecha Perú 2018</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1UGw0C_PEMEng8wXKXuHwE66ufAHaQj7k/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver acuerdo
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 446 - Colombia 2019 - Sede</div>
+                <div class="doc-item-meta">Aprueba la realización de la EXPO ALADI – Colombia 2019 en Bucaramanga.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede Colombia 2019</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1TsHPt9j_HRZaV9EzoiTi7fEmJj9_NwXV/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Acuerdo 413 - Ecuador 2020 - Fecha</div>
+                <div class="doc-item-meta">Establece que la EXPO ALADI – Ecuador 2020 se realizará del 26 al 30 de octubre de 2020 en modalidad virtual.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Fecha Ecuador 2020</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1KQ3pHoyE_TcWV8frPMwdUJwJwEhBPG6F/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver acuerdo
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 453 - Ecuador 2020 - Sede</div>
+                <div class="doc-item-meta">Aprueba la realización de una macrorrueda en Guayaquil en 2020 como EXPO ALADI 2020.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede Ecuador 2020</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1_re25DIijWXiLJSp3YPQRel2D_mdxudm/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Resolución 469 - Cuba 2023 - Sede</div>
+                <div class="doc-item-meta">Aprueba la realización de la EXPO ALADI – Cuba 2023 en La Habana.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Sede Cuba 2023</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1-vZc-2KK0e0hnqnmy0Yy1cUCviGrtZql/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Acuerdo 440 - Cuba 2023 - Fecha</div>
+                <div class="doc-item-meta">Fija que la EXPO ALADI – Cuba 2023 se celebre del 2 al 4 de octubre de 2023.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Fecha Cuba 2023</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/11tDI55884eutOHpraCmO67frmWyn4te2/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver acuerdo
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Resolución 491 - Bolivia 2025 - Fecha y lugar</div>
+                <div class="doc-item-meta">Aprueba la EXPO ALADI 2025 en Santa Cruz de la Sierra, Bolivia, del 8 al 10 de julio de 2025.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Fecha / sede Bolivia 2025 (original)</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1DFQJpnJRR6mthgxh4lghAAxE43bRQVIv/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 499 - Bolivia 2025 - Modificación Fecha</div>
+                <div class="doc-item-meta">Modifica la fecha de la EXPO ALADI – Bolivia 2025 al 29–31 de julio de 2025.</div>
+                <div class="doc-tags">
+                  <span class="tag type-sede">Modificación de fecha</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1g46VhEefKtzFGAupd6XHvYTKO_Bohth0/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Instrumentos presupuestarios (Fondo de Capital de Trabajo)</h3>
+                <p class="card-subtitle">Resoluciones que asignan recursos para la organización de la EXPO ALADI.</p>
+              </div>
+            </div>
+            <div class="doc-list">
+              <!-- Presupuesto -->
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 402 - Uruguay 2014 - Ter Ref y Presupuesto</div>
+                <div class="doc-item-meta">Incluye la asignación de recursos del Fondo de Capital de Trabajo para Uruguay 2014.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/195d3iiY1J1BtwBpNy3zLlX70OabbPNkS/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 418 - Argentina 2015 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 del Fondo de Capital de Trabajo para Argentina 2015.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1XrDrrsu_ohd74gid9UyF4DzabJC1fkok/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 422 - México 2016 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 para la EXPO ALADI – México 2016.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/18nW6Cu-8C34yEPMj6scgR7adMQV80tDn/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 436 - Bolivia 2017 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 para la EXPO ALADI – Bolivia 2017.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1N3XUbBf9R2XQjsw6M1fSEX2gBgM4Cv1w/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 444 - Perú 2018 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 para la EXPO ALADI – Perú 2018.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1iuIfmapRiqjs-Ow74uHYl7fDZDbhhQOs/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 451 - Colombia 2019 - Fondos Expo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 para la EXPO ALADI – Colombia 2019.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1ddiF5mK7D6vYpv7rvyY3w6401SbJHTsV/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Resolución 474 - Cuba 2023 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 342.500 para la EXPO ALADI – Cuba 2023.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1r3Eu700aThtmSU2epYNlNqvsMo8ytRtM/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 497 - Bolivia 2025 - Fondo Capital de Trabajo</div>
+                <div class="doc-item-meta">Destina hasta US$ 180.700 para la EXPO ALADI – Bolivia 2025.</div>
+                <div class="doc-tags">
+                  <span class="tag type-presupuesto">Fondo de Capital de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1Dy-3_ajhizyDWucEpmJZtkNVwKQy_cOq/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Sección: MARCO GENERAL -->
+        <section id="section-marco" class="section">
+          <div class="card highlight-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">CMRES 79 (XVII) – Mandato político de la EXPO ALADI</h3>
+                <p class="card-subtitle">Consejo de Ministros – Resolución 79 (XVII)</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>
+                La Resolución 79 (XVII) del Consejo de Ministros establece el mandato político para la promoción del comercio intrarregional,
+                instruyendo al Comité de Representantes a redoblar esfuerzos para asegurar el éxito de la EXPO ALADI y a elaborar un plan de acción
+                que incluya macrorruedas de negocios, encuentros sectoriales, misiones comerciales y ferias en el marco de la Asociación.
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="doc-tags">
+                <span class="tag type-marco">Mandato Consejo de Ministros</span>
+              </div>
+              <a class="link-btn" href="https://drive.google.com/file/d/10BFmmfU6QHdPOP7EI1y8eC-_J-ePikV9/view?usp=drivesdk" target="_blank" rel="noopener">
+                Ver CMRES 79 en Drive
+              </a>
+            </div>
+          </div>
+
+          <div class="card highlight-card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">CR Res 435 – Directrices y procedimiento de postulación</h3>
+                <p class="card-subtitle">Pieza central del marco normativo de la EXPO ALADI</p>
+              </div>
+            </div>
+            <div class="card-body">
+              <p>
+                La Resolución 435 del Comité de Representantes establece las <strong>“Directrices y el procedimiento de postulación y selección
+                de los países miembros de la ALADI para ser país anfitrión de la EXPO ALADI – Macrorrueda de Negocios”</strong>. Define
+                la periodicidad del evento, los plazos de postulación (con dos años de anticipación), la forma de presentación de candidaturas
+                y la obligación de que el país anfitrión sea seleccionado mediante resolución entre el 2 de mayo y el 30 de junio del año
+                anterior a la edición correspondiente.
+              </p>
+              <p>
+                Esta resolución garantiza transparencia, previsibilidad y equidad en la selección de sedes, y dispone que, en ausencia de postulantes,
+                la EXPO ALADI pueda realizarse en el país sede de la ALADI, preservando la continuidad del instrumento de promoción comercial.
+              </p>
+            </div>
+            <div class="card-footer">
+              <div class="doc-tags">
+                <span class="tag type-marco">Directrices de postulación</span>
+              </div>
+              <a class="link-btn" href="https://drive.google.com/file/d/1vsO_XNtHHDdDni8Byof7l2L5p0KkmVAw/view?usp=drivesdk" target="_blank" rel="noopener">
+                Ver Res. 435 en Drive
+              </a>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3 class="card-title">Otros instrumentos de marco general</h3>
+                <p class="card-subtitle">Diseño institucional de la EXPO ALADI y creación de grupos de trabajo.</p>
+              </div>
+            </div>
+            <div class="doc-list">
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 401 - Uruguay 2014 y Grupo Ad-Hoc</div>
+                <div class="doc-item-meta">Crea un Grupo de Trabajo Ad Hoc para diseñar la primera EXPO ALADI y elaborar sus Términos de Referencia.</div>
+                <div class="doc-tags">
+                  <span class="tag type-marco">Grupo de Trabajo</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1LbCOiHkSesldwjEeXEBx7v5CHQBAB5Fy/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+              <div class="doc-item">
+                <div class="doc-item-title">CR Res 416 - Sede Arg 2015 y Mx 2016 - Creación GT</div>
+                <div class="doc-item-meta">Crea el Grupo de Trabajo “EXPO ALADI – Macrorruedas de Negocios” con mandato permanente para proponer Términos de Referencia y evaluar resultados.</div>
+                <div class="doc-tags">
+                  <span class="tag type-marco">Grupo de Trabajo permanente</span>
+                </div>
+                <a class="doc-link" href="https://drive.google.com/file/d/1tqRkKxlHJPVb66i8B2YtYjx4pbBB9RnT/view?usp=drivesdk" target="_blank" rel="noopener">
+                  Ver resolución
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // Tabs superiores
+    const tabs = document.querySelectorAll('.tab');
+    const sections = document.querySelectorAll('.section');
+
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const sectionId = tab.getAttribute('data-section');
+
+        tabs.forEach(t => t.classList.remove('active'));
+        sections.forEach(s => s.classList.remove('active'));
+
+        tab.classList.add('active');
+        document.getElementById('section-' + sectionId).classList.add('active');
+
+        // Sincronizar chips laterales
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+          chip.classList.toggle('active', chip.getAttribute('data-tab-target') === sectionId);
+        });
+      });
+    });
+
+    // Chips laterales
+    const chips = document.querySelectorAll('.filter-chip');
+    chips.forEach(chip => {
+      chip.addEventListener('click', () => {
+        const target = chip.getAttribute('data-tab-target');
+
+        tabs.forEach(t => {
+          const sectionId = t.getAttribute('data-section');
+          t.classList.toggle('active', sectionId === target);
+        });
+
+        sections.forEach(s => {
+          const id = s.id.replace('section-', '');
+          s.classList.toggle('active', id === target);
+        });
+
+        chips.forEach(c => c.classList.remove('active'));
+        chip.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
